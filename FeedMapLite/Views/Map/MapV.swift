@@ -18,6 +18,7 @@ struct MapV: View {
     @State private var cancellables: Set<AnyCancellable> = []
     @State private var showFeedWrite = false
     @State private var isActive = false
+    @State private var isSelectTab = false
 
     var store: StoreOf<MapFeature>
     
@@ -70,6 +71,11 @@ struct MapV: View {
                                 Spacer().frame(height: 20)
                             }
                             .frame(minHeight: geometry.size.height)
+                            
+                            if self.isSelectTab {
+                                SelectTabV(selectFeedData: viewStore.$selectFeedRawData,
+                                           isActive: $isActive)
+                            }
                         }
                     }
                     
@@ -97,6 +103,9 @@ struct MapV: View {
                     //getFeedList
                     viewStore.send(.getFeedList)
                 }
+            })
+            .onChange(of: viewStore.isSelectTab, {
+                self.isSelectTab = viewStore.isSelectTab
             })
             .task {
                 self.setNaviBarAppearnce()

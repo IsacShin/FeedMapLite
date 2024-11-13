@@ -35,7 +35,7 @@ struct MapFeature {
         var isLoading: Bool = false
         var errorMessage: String?
         var feedListRawData: [FeedDataModel]? = nil
-        var selectFeedRawData: FeedDataModel? = nil
+        @BindingState var selectFeedRawData: FeedDataModel? = nil
         
         // 현재 위치 상태 추가
         var currentLocation: CLLocation? = nil
@@ -66,6 +66,8 @@ struct MapFeature {
         case isExistFeedCheck(cLocation: CLLocation?)
         
         case getFeedList
+        
+        case isShowSelectTab(isSelectTab: Bool, selectData: FeedDataModel?)
     }
     
     struct Environment {
@@ -90,6 +92,7 @@ struct MapFeature {
                 }
             case .getFeedList:
                 let feedList = try! state.context?.fetch(FetchDescriptor<FeedDataModel>())
+                state.isUpdateCheck = true
                 state.feedListRawData = feedList
                 return .none
             case .fetchAddrGeocode(param: let geocodeRequest):
@@ -218,6 +221,11 @@ struct MapFeature {
                 
             case let .setCenterPosition(cLocation):
                 state.centerLocation = cLocation
+                return .none
+                
+            case let .isShowSelectTab(isSelectTab, selectData):
+                state.isSelectTab = isSelectTab
+                state.selectFeedRawData = selectData
                 return .none
             }
         }

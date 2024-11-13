@@ -1,4 +1,5 @@
 {
+  "originHash" : "ddf4f8e23f7a74cbd72bf1a905968badece57d6577c8f34b12b2e6605d9c90ef",
   "pins" : [
     {
       "identity" : "combine-schedulers",
@@ -25,6 +26,15 @@
       "state" : {
         "revision" : "ac1b60a22c7e6a6514de7a66d2f3d5b537c956d5",
         "version" : "4.0.2"
+      }
+    },
+    {
+      "identity" : "snapkit",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/SnapKit/SnapKit.git",
+      "state" : {
+        "revision" : "2842e6e84e82eb9a8dac0100ca90d9444b0307f4",
+        "version" : "5.7.1"
       }
     },
     {
@@ -154,5 +164,5 @@
       }
     }
   ],
-  "version" : 2
+  "version" : 3
 }

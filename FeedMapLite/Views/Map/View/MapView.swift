@@ -9,6 +9,7 @@ import SwiftUI
 import GoogleMaps
 import Kingfisher
 import ComposableArchitecture
+import SnapKit
 
 struct MapView: UIViewRepresentable {
     var store: ViewStore<MapFeature.State, MapFeature.Action>
@@ -34,6 +35,23 @@ struct MapView: UIViewRepresentable {
         if store.state.isUpdateCheck {
             uiView.clear()
             
+            if let datas = store.state.feedListRawData {
+                if datas.count > 0 {
+                    datas.forEach { data in
+                        guard let lat = data.latitude,
+                              let lng = data.longitude,
+                              let dLat = Double(lat),
+                              let dLng = Double(lng) else { return }
+                        
+                        let loca = CLLocation(latitude: dLat, longitude: dLng)
+                        self.createMarker(mapView: uiView, loca: loca, data: data)
+                    }
+                }
+                
+                store.send(.setMapView(moveLocation: nil,
+                                           isUpdateCheck: false))
+            }
+            
             if let location = store.state.moveLocation {
                 self.mapCameraMove(mapView: uiView, location: location)
             }
@@ -54,6 +72,11 @@ struct MapView: UIViewRepresentable {
         
         // 마커클릭
         func mapView(_ mapView: GMSMapView, didTap marker: GMSMarker) -> Bool {
+            if let data = marker.userData as? FeedDataModel {
+                
+                store.send(.isShowSelectTab(isSelectTab: true, selectData: data))
+            }
+            
             return true
         }
         
@@ -64,7 +87,7 @@ struct MapView: UIViewRepresentable {
         
         // 지도 클릭
         func mapView(_ mapView: GMSMapView, didTapAt coordinate: CLLocationCoordinate2D) {
-            
+            store.send(.isShowSelectTab(isSelectTab: false, selectData: nil))
         }
         
         // 지도 중앙 위치
@@ -76,6 +99,32 @@ struct MapView: UIViewRepresentable {
             print("Center Position: \(clocation)")
             store.send(.setCenterPosition(cLocation: clocation))
         }
+    }
+    
+    private func createMarker(mapView: GMSMapView, loca: CLLocation, data: FeedDataModel) {
+        let marker = GMSMarker()
+        marker.position = CLLocationCoordinate2D(latitude: loca.coordinate.latitude, longitude: loca.coordinate.longitude)
+        marker.title = data.addr
+        marker.snippet = data.title
+        
+        marker.userData = data
+        if let imgData = data.img1,
+           let img = UIImage(data: imgData) {
+            let v = UIView()
+            v.frame = .init(x: 0, y: 0, width: 45, height: 45)
+            v.layer.cornerRadius = v.frame.width / 2
+            v.layer.borderColor = UIColor.red.cgColor
+            v.layer.borderWidth = 2
+            v.clipsToBounds = true
+            let imgV = UIImageView()
+            v.addSubview(imgV)
+            imgV.snp.makeConstraints {
+                $0.leading.trailing.top.bottom.equalToSuperview()
+            }
+            imgV.image = img
+            marker.iconView = v
+        }
+        marker.map = mapView
     }
 
 }

@@ -232,7 +232,6 @@ struct FeedWriteV: View {
             .toolbar {
                 ToolbarItem(placement: .navigationBarLeading) {
                     Button(action: {
-                        self.isActive = true
                         dismiss()
                     }) {
                         Image(systemName: "chevron.backward")
@@ -255,6 +254,7 @@ struct FeedWriteV: View {
                 switch viewStore.alertType {
                 case .feedWriteSuccess:
                     return Alert(title: Text(msg), dismissButton: .default(Text("확인"), action: {
+                        self.isActive = true
                         dismiss()
                     }))
                 case .feedDeleteConfirm:
@@ -267,6 +267,7 @@ struct FeedWriteV: View {
                         secondaryButton: .cancel(Text("취소")))
                 case .feedDeleteSuccess:
                     return Alert(title: Text(msg), dismissButton: .default(Text("확인"), action: {
+                        self.isActive = true
                         dismiss()
                     }))
                 default:

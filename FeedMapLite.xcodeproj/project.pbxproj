@@ -9,6 +9,10 @@
 /* Begin PBXBuildFile section */
 		03DCB0ED870BA3F80BDFAC38 /* Pods_FeedMapLite.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 112BE3013C6949FDE3D5A42A /* Pods_FeedMapLite.framework */; };
 		E00A6BE32C818CD6008A6EF7 /* LocationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = E00A6BE22C818CD6008A6EF7 /* LocationManager.swift */; };
+		E013C4222CD4BD2E00702BB9 /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = E013C4212CD4BD2E00702BB9 /* SnapKit */; };
+		E013C4242CDA028D00702BB9 /* SelectTabV.swift in Sources */ = {isa = PBXBuildFile; fileRef = E013C4232CDA028D00702BB9 /* SelectTabV.swift */; };
+		E013C4272CDA05C100702BB9 /* CornerRadiusStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = E013C4262CDA05C100702BB9 /* CornerRadiusStyle.swift */; };
+		E013C4282CDA05C100702BB9 /* CornerRadiusShape.swift in Sources */ = {isa = PBXBuildFile; fileRef = E013C4252CDA05C100702BB9 /* CornerRadiusShape.swift */; };
 		E0667AF12CD2181700C7B538 /* FeedDataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0667AF02CD2181700C7B538 /* FeedDataModel.swift */; };
 		E0667AF32CD222C600C7B538 /* String+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0667AF22CD222C600C7B538 /* String+Ext.swift */; };
 		E0667AF52CD2236000C7B538 /* Date+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0667AF42CD2236000C7B538 /* Date+Ext.swift */; };
@@ -53,6 +57,9 @@
 		112BE3013C6949FDE3D5A42A /* Pods_FeedMapLite.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_FeedMapLite.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		8DD7C472A0CA8FCFD5AF8DD1 /* Pods-FeedMapLite.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FeedMapLite.release.xcconfig"; path = "Target Support Files/Pods-FeedMapLite/Pods-FeedMapLite.release.xcconfig"; sourceTree = "<group>"; };
 		E00A6BE22C818CD6008A6EF7 /* LocationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationManager.swift; sourceTree = "<group>"; };
+		E013C4232CDA028D00702BB9 /* SelectTabV.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectTabV.swift; sourceTree = "<group>"; };
+		E013C4252CDA05C100702BB9 /* CornerRadiusShape.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CornerRadiusShape.swift; sourceTree = "<group>"; };
+		E013C4262CDA05C100702BB9 /* CornerRadiusStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CornerRadiusStyle.swift; sourceTree = "<group>"; };
 		E0667AF02CD2181700C7B538 /* FeedDataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedDataModel.swift; sourceTree = "<group>"; };
 		E0667AF22CD222C600C7B538 /* String+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Ext.swift"; sourceTree = "<group>"; };
 		E0667AF42CD2236000C7B538 /* Date+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date+Ext.swift"; sourceTree = "<group>"; };
@@ -102,6 +109,7 @@
 				E0936AF32C4E494900E1395F /* Kingfisher in Frameworks */,
 				E0E8614E2C8FF7360056EF13 /* ComposableArchitecture in Frameworks */,
 				E0FF78492C89460A00264013 /* YPImagePicker in Frameworks */,
+				E013C4222CD4BD2E00702BB9 /* SnapKit in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -246,6 +254,7 @@
 				E0936AE92C4E43E400E1395F /* View */,
 				E0936AE72C4E435F00E1395F /* Feature */,
 				E0936AC02C4E161800E1395F /* MapV.swift */,
+				E013C4232CDA028D00702BB9 /* SelectTabV.swift */,
 			);
 			path = Map;
 			sourceTree = "<group>";
@@ -295,6 +304,7 @@
 		E0B211602C7C503600F1EE00 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				E013C4252CDA05C100702BB9 /* CornerRadiusShape.swift */,
 				E0FF785D2C89637400264013 /* ObservableScrollView.swift */,
 				E0FF784B2C89464200264013 /* CommonImagePicker.swift */,
 				E0FF78562C894AFF00264013 /* VisualEffectBlurView.swift */,
@@ -372,6 +382,7 @@
 		E0FF785F2C8963AF00264013 /* Modifier */ = {
 			isa = PBXGroup;
 			children = (
+				E013C4262CDA05C100702BB9 /* CornerRadiusStyle.swift */,
 				E0FF78522C89493800264013 /* GrayBox.swift */,
 				E0FF78582C894C2F00264013 /* BlinkingAnimModifier.swift */,
 				E0FF785A2C895ECE00264013 /* ImageModifier.swift */,
@@ -401,6 +412,7 @@
 				E0936AF22C4E494900E1395F /* Kingfisher */,
 				E0FF78482C89460A00264013 /* YPImagePicker */,
 				E0E8614D2C8FF7360056EF13 /* ComposableArchitecture */,
+				E013C4212CD4BD2E00702BB9 /* SnapKit */,
 			);
 			productName = FeedMapLite;
 			productReference = E0936ABB2C4E161800E1395F /* FeedMapLite.app */;
@@ -434,6 +446,7 @@
 				E0936AF12C4E494900E1395F /* XCRemoteSwiftPackageReference "Kingfisher" */,
 				E0FF78472C89460A00264013 /* XCRemoteSwiftPackageReference "YPImagePicker" */,
 				E0E8614C2C8FF7360056EF13 /* XCRemoteSwiftPackageReference "swift-composable-architecture" */,
+				E013C4202CD4BD2E00702BB9 /* XCRemoteSwiftPackageReference "SnapKit" */,
 			);
 			productRefGroup = E0936ABC2C4E161800E1395F /* Products */;
 			projectDirPath = "";
@@ -531,9 +544,12 @@
 				E0936ABF2C4E161800E1395F /* FeedMapLiteApp.swift in Sources */,
 				E0720E352C74537200755AE2 /* GeocodeRawData.swift in Sources */,
 				E0936AD62C4E219500E1395F /* Defines.swift in Sources */,
+				E013C4242CDA028D00702BB9 /* SelectTabV.swift in Sources */,
 				E0B211662C7C52EA00F1EE00 /* WebViewFeature.swift in Sources */,
 				E0B211632C7C50F400F1EE00 /* CommonWebView.swift in Sources */,
 				E0936AD22C4E1F9500E1395F /* KeyBoardNotificationManager.swift in Sources */,
+				E013C4272CDA05C100702BB9 /* CornerRadiusStyle.swift in Sources */,
+				E013C4282CDA05C100702BB9 /* CornerRadiusShape.swift in Sources */,
 				E0FF78572C894AFF00264013 /* VisualEffectBlurView.swift in Sources */,
 				E00A6BE32C818CD6008A6EF7 /* LocationManager.swift in Sources */,
 				E0720E3B2C76EF9100755AE2 /* APIError.swift in Sources */,
@@ -766,6 +782,14 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
+		E013C4202CD4BD2E00702BB9 /* XCRemoteSwiftPackageReference "SnapKit" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/SnapKit/SnapKit.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.7.1;
+			};
+		};
 		E0936AF12C4E494900E1395F /* XCRemoteSwiftPackageReference "Kingfisher" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/onevcat/Kingfisher.git";
@@ -793,6 +817,11 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		E013C4212CD4BD2E00702BB9 /* SnapKit */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = E013C4202CD4BD2E00702BB9 /* XCRemoteSwiftPackageReference "SnapKit" */;
+			productName = SnapKit;
+		};
 		E0936AF22C4E494900E1395F /* Kingfisher */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = E0936AF12C4E494900E1395F /* XCRemoteSwiftPackageReference "Kingfisher" */;

@@ -121,6 +121,15 @@ struct FeedWriteFeature {
                     state.title = feedData.title
                     state.comment = feedData.comment ?? ""
                     state.addr = feedData.addr ?? ""
+                    if let img1 = feedData.img1, let imgData = UIImage(data: img1) {
+                        state.imgs.append(imgData)
+                    }
+                    if let img2 = feedData.img2, let imgData = UIImage(data: img2) {
+                        state.imgs.append(imgData)
+                    }
+                    if let img3 = feedData.img3, let imgData = UIImage(data: img3) {
+                        state.imgs.append(imgData)
+                    }
                 } else {
                     if let address = address {
                         state.addr = address
