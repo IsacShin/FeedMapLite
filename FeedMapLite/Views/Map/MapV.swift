@@ -102,6 +102,7 @@ struct MapV: View {
                 if isActive {
                     //getFeedList
                     viewStore.send(.getFeedList)
+                    viewStore.send(.isShowSelectTab(isSelectTab: false, selectData: nil))
                 }
             })
             .onChange(of: viewStore.isSelectTab, {
