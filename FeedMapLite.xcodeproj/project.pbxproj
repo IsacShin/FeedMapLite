@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 56;
+	objectVersion = 70;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -31,13 +31,14 @@
 		E0936AD42C4E205200E1395F /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0936AD32C4E205200E1395F /* NetworkManager.swift */; };
 		E0936AD62C4E219500E1395F /* Defines.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0936AD52C4E219500E1395F /* Defines.swift */; };
 		E0936ADC2C4E389500E1395F /* TabV.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0936ADB2C4E389500E1395F /* TabV.swift */; };
-		E0936AE02C4E3AA400E1395F /* FeedListV.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0936ADF2C4E3AA400E1395F /* FeedListV.swift */; };
 		E0936AEB2C4E43FF00E1395F /* MapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0936AEA2C4E43FF00E1395F /* MapView.swift */; };
 		E0936AF32C4E494900E1395F /* Kingfisher in Frameworks */ = {isa = PBXBuildFile; productRef = E0936AF22C4E494900E1395F /* Kingfisher */; };
 		E0B211632C7C50F400F1EE00 /* CommonWebView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0B211622C7C50F400F1EE00 /* CommonWebView.swift */; };
 		E0B211662C7C52EA00F1EE00 /* WebViewFeature.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0B211652C7C52EA00F1EE00 /* WebViewFeature.swift */; };
 		E0B211682C7D59F800F1EE00 /* CommonWebV.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0B211672C7D59F800F1EE00 /* CommonWebV.swift */; };
 		E0E8614E2C8FF7360056EF13 /* ComposableArchitecture in Frameworks */ = {isa = PBXBuildFile; productRef = E0E8614D2C8FF7360056EF13 /* ComposableArchitecture */; };
+		E0EFC3B62CE71C2000A94AB3 /* FeedV.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0EFC3B52CE71C2000A94AB3 /* FeedV.swift */; };
+		E0EFC3B82CE735F000A94AB3 /* ImageSliderV.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0EFC3B72CE735F000A94AB3 /* ImageSliderV.swift */; };
 		E0FF78422C893F5900264013 /* FeedWriteV.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0FF78412C893F5900264013 /* FeedWriteV.swift */; };
 		E0FF78462C89428800264013 /* UIApplication+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0FF78452C89428800264013 /* UIApplication+Ext.swift */; };
 		E0FF78492C89460A00264013 /* YPImagePicker in Frameworks */ = {isa = PBXBuildFile; productRef = E0FF78482C89460A00264013 /* YPImagePicker */; };
@@ -79,12 +80,13 @@
 		E0936AD32C4E205200E1395F /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
 		E0936AD52C4E219500E1395F /* Defines.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Defines.swift; sourceTree = "<group>"; };
 		E0936ADB2C4E389500E1395F /* TabV.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabV.swift; sourceTree = "<group>"; };
-		E0936ADF2C4E3AA400E1395F /* FeedListV.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedListV.swift; sourceTree = "<group>"; };
 		E0936AEA2C4E43FF00E1395F /* MapView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapView.swift; sourceTree = "<group>"; };
 		E0B2115F2C7C4B0C00F1EE00 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		E0B211622C7C50F400F1EE00 /* CommonWebView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommonWebView.swift; sourceTree = "<group>"; };
 		E0B211652C7C52EA00F1EE00 /* WebViewFeature.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebViewFeature.swift; sourceTree = "<group>"; };
 		E0B211672C7D59F800F1EE00 /* CommonWebV.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommonWebV.swift; sourceTree = "<group>"; };
+		E0EFC3B52CE71C2000A94AB3 /* FeedV.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedV.swift; sourceTree = "<group>"; };
+		E0EFC3B72CE735F000A94AB3 /* ImageSliderV.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageSliderV.swift; sourceTree = "<group>"; };
 		E0FF78412C893F5900264013 /* FeedWriteV.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedWriteV.swift; sourceTree = "<group>"; };
 		E0FF78452C89428800264013 /* UIApplication+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIApplication+Ext.swift"; sourceTree = "<group>"; };
 		E0FF784B2C89464200264013 /* CommonImagePicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommonImagePicker.swift; sourceTree = "<group>"; };
@@ -99,6 +101,10 @@
 		E0FF78602C8966AF00264013 /* FeedWriteFeature.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedWriteFeature.swift; sourceTree = "<group>"; };
 		F0228816599C0607126CBD7D /* Pods-FeedMapLite.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FeedMapLite.debug.xcconfig"; path = "Target Support Files/Pods-FeedMapLite/Pods-FeedMapLite.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
+
+/* Begin PBXFileSystemSynchronizedRootGroup section */
+		E0EFC3B12CE71BD100A94AB3 /* List */ = {isa = PBXFileSystemSynchronizedRootGroup; explicitFileTypes = {}; explicitFolders = (); path = List; sourceTree = "<group>"; };
+/* End PBXFileSystemSynchronizedRootGroup section */
 
 /* Begin PBXFrameworksBuildPhase section */
 		E0936AB82C4E161800E1395F /* Frameworks */ = {
@@ -270,10 +276,10 @@
 		E0936ADD2C4E3A8A00E1395F /* Feed */ = {
 			isa = PBXGroup;
 			children = (
+				E0EFC3B12CE71BD100A94AB3 /* List */,
 				E0FF78402C893F4500264013 /* Write */,
 				E0FF783F2C884C3000264013 /* Model */,
-				E0936AE82C4E436400E1395F /* Feature */,
-				E0936ADF2C4E3AA400E1395F /* FeedListV.swift */,
+				E0EFC3B52CE71C2000A94AB3 /* FeedV.swift */,
 			);
 			path = Feed;
 			sourceTree = "<group>";
@@ -282,13 +288,6 @@
 			isa = PBXGroup;
 			children = (
 				E092E6932C5A119E002A00E0 /* MapFeature.swift */,
-			);
-			path = Feature;
-			sourceTree = "<group>";
-		};
-		E0936AE82C4E436400E1395F /* Feature */ = {
-			isa = PBXGroup;
-			children = (
 			);
 			path = Feature;
 			sourceTree = "<group>";
@@ -304,6 +303,7 @@
 		E0B211602C7C503600F1EE00 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				E0EFC3B72CE735F000A94AB3 /* ImageSliderV.swift */,
 				E013C4252CDA05C100702BB9 /* CornerRadiusShape.swift */,
 				E0FF785D2C89637400264013 /* ObservableScrollView.swift */,
 				E0FF784B2C89464200264013 /* CommonImagePicker.swift */,
@@ -406,6 +406,9 @@
 			buildRules = (
 			);
 			dependencies = (
+			);
+			fileSystemSynchronizedGroups = (
+				E0EFC3B12CE71BD100A94AB3 /* List */,
 			);
 			name = FeedMapLite;
 			packageProductDependencies = (
@@ -517,6 +520,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				E0FF78422C893F5900264013 /* FeedWriteV.swift in Sources */,
+				E0EFC3B82CE735F000A94AB3 /* ImageSliderV.swift in Sources */,
 				E0720E412C770DF500755AE2 /* GeocodeAPIClient.swift in Sources */,
 				E0936AD42C4E205200E1395F /* NetworkManager.swift in Sources */,
 				E0FF785B2C895ECE00264013 /* ImageModifier.swift in Sources */,
@@ -535,8 +539,8 @@
 				E0FF78532C89493900264013 /* GrayBox.swift in Sources */,
 				E0FF78462C89428800264013 /* UIApplication+Ext.swift in Sources */,
 				E0FF78592C894C2F00264013 /* BlinkingAnimModifier.swift in Sources */,
+				E0EFC3B62CE71C2000A94AB3 /* FeedV.swift in Sources */,
 				E0667AF52CD2236000C7B538 /* Date+Ext.swift in Sources */,
-				E0936AE02C4E3AA400E1395F /* FeedListV.swift in Sources */,
 				E092E6972C5A1A17002A00E0 /* FeedRawData.swift in Sources */,
 				E0667AF32CD222C600C7B538 /* String+Ext.swift in Sources */,
 				E0FF78612C8966AF00264013 /* FeedWriteFeature.swift in Sources */,
