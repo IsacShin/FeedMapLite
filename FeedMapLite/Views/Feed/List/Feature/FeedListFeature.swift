@@ -17,13 +17,11 @@ struct FeedListFeature {
     struct State: Equatable {
         var isLoading: Bool = false
         var feedListRawData: [FeedDataModel]? = nil
-        
-        var context: ModelContext?
     }
     
     enum Action: BindableAction, Equatable {
         case binding(BindingAction<State>)
-        case getFeedList
+        case getFeedList(context: ModelContext)
     }
     
     var body: some ReducerOf<Self> {
@@ -32,9 +30,11 @@ struct FeedListFeature {
             switch action {
             case .binding:
                 return .none
-            case .getFeedList:
-                let feedList = try! state.context?.fetch(FetchDescriptor<FeedDataModel>())
+            case let .getFeedList(context):
+                state.isLoading = true
+                let feedList = try! context.fetch(FetchDescriptor<FeedDataModel>())
                 state.feedListRawData = feedList
+                state.isLoading = false
                 return .none
             }
         }

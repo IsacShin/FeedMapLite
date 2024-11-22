@@ -38,7 +38,7 @@ struct SelectTabV: View {
                             let loca = CLLocation(latitude: dLat, longitude: dLng)
                             NavigationLink(destination: {
                                 FeedWriteV(
-                                    store: Store(initialState: FeedWriteFeature.State(),
+                                    store: Store(initialState: FeedWriteFeature.State(id: selectFeedData.id),
                                                  reducer: { FeedWriteFeature() }),
                                     isUpdateV: true,
                                     loca: loca,

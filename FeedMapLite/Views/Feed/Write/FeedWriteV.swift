@@ -243,7 +243,6 @@ struct FeedWriteV: View {
             .background(DARK_COLOR)
             .onReceive(self.keyboardManager.updateKeyboardStatus) { updatedStatus in
                 self.keyboardStatus = updatedStatus
-                print("높이: \(keyboardManager.keyboardHeight)")
             }
             .task {
                 viewStore.send(.setData(feedData: selectFeedData,
@@ -279,6 +278,13 @@ struct FeedWriteV: View {
                 CommonImagePicker(completion: { images in
                     viewStore.send(.setImages(imgs: images))
                 }, maxCount: 3)
+            }
+            .onChange(of: viewStore.isUpdate) { old, new in
+                if new {
+                    self.isActive = true
+                    viewStore.send(.showAlert(isShow: true,
+                                              alertType: .feedWriteSuccess))
+                }
             }
             
         }

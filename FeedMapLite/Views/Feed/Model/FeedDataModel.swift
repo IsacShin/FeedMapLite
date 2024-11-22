@@ -10,7 +10,7 @@ import SwiftData
 
 @Model
 final class FeedDataModel {
-    @Attribute(.unique) var id: UUID = UUID()
+    @Attribute(.unique) var id: UUID
     var title: String
     var addr: String?
     var date: String
@@ -21,7 +21,8 @@ final class FeedDataModel {
     var img2: Data?
     var img3: Data?
     
-    init(title: String, addr: String? = nil, date: String, comment: String? = nil, latitude: String? = nil, longitude: String? = nil, img1: Data? = nil, img2: Data? = nil, img3: Data? = nil) {
+    init(id: UUID, title: String, addr: String? = nil, date: String, comment: String? = nil, latitude: String? = nil, longitude: String? = nil, img1: Data? = nil, img2: Data? = nil, img3: Data? = nil) {
+        self.id = id
         self.title = title
         self.addr = addr
         self.date = date

@@ -20,6 +20,10 @@ struct TabV: View {
                                                  mainQueue: .main.eraseToAnyScheduler())
         MapFeature(environment: environment)
     }
+    
+    private var feedListStore = Store(initialState: FeedListFeature.State()) {
+        FeedListFeature()
+    }
 
     init() {
         UITabBar.appearance().unselectedItemTintColor = .lightGray
@@ -39,7 +43,7 @@ struct TabV: View {
                 }
                 .tag(TabType.MAP)
             
-            FeedListV()
+            FeedListV(store: self.feedListStore)
                 .tabItem {
                     Image(systemName: "list.bullet.below.rectangle")
                     Text("Feed")

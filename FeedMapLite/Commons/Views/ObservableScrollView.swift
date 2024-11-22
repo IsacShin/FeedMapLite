@@ -44,7 +44,6 @@ struct ObservableScrollView<Content>: View where Content : View {
         }
         .coordinateSpace(name: scrollSpace)
         .onPreferenceChange(ScrollViewOffsetPreferenceKey.self) { value in
-            print("scrollOffset : \(scrollOffset)")
             scrollOffset = value
         }
     }

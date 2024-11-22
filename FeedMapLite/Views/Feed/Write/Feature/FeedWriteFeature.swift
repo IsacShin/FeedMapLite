@@ -15,6 +15,7 @@ import SwiftData
 @Reducer
 struct FeedWriteFeature {
     struct State: Equatable {
+        @BindingState var id: UUID?
         @BindingState var comment: String = ""
         @BindingState var title: String = ""
         var addr: String = ""
@@ -23,6 +24,7 @@ struct FeedWriteFeature {
         @BindingState var showAlert = false
         @BindingState var showPhotoPicker = false
         var isLoading = false
+        var isUpdate: Bool = false
     }
     
     enum Action: BindableAction, Equatable {
@@ -73,12 +75,11 @@ struct FeedWriteFeature {
                     guard let loca = loca else {
                         return .none
                     }
-                    
-                    state.isLoading = true
-                    
+                                        
                     let latitude = String(format: "%.4f", Double(loca.coordinate.latitude))
                     let longitude = String(format: "%.4f", Double(loca.coordinate.longitude))
-                    let feedData = FeedDataModel(title: state.title,
+                    let feedData = FeedDataModel(id: state.id ?? UUID(),
+                                                 title: state.title,
                                                  addr: state.addr,
                                                  date: Date.now.wddSimpleDateForm(),
                                                  comment: state.comment,
@@ -89,35 +90,44 @@ struct FeedWriteFeature {
                                                  img3: state.imgs.count > 2 ? state.imgs[2].jpegData(compressionQuality: 0.1) : nil)
 
                     if isUpdateV {
-                        // 수정
-                        let feedList = try! context.fetch(FetchDescriptor<FeedDataModel>())
-                        guard let updateFeed = feedList.filter({ $0.id == feedData.id }).first else {
-                            return .none
-                        }
                         
-                        updateFeed.title = state.title
-                        updateFeed.date = Date.now.wddSimpleDateForm()
-                        updateFeed.comment = state.comment
-                        updateFeed.img1 = state.imgs.count > 0 ? state.imgs[0].jpegData(compressionQuality: 0.1) : nil
-                        updateFeed.img2 = state.imgs.count > 1 ? state.imgs[1].jpegData(compressionQuality: 0.1) : nil
-                        updateFeed.img3 = state.imgs.count > 2 ? state.imgs[2].jpegData(compressionQuality: 0.1) : nil
-                        return .run { send in
-                            await send(.showAlert(isShow: true,
-                                                  alertType: .feedWriteSuccess))
+                        do {
+                            // 수정
+                            let feedList = try context.fetch(FetchDescriptor<FeedDataModel>())
+                            guard let updateFeed = feedList.filter({ $0.id == feedData.id }).first else {
+                                return .none
+                            }
+                            
+                            updateFeed.title = state.title
+                            updateFeed.date = Date.now.wddSimpleDateForm()
+                            updateFeed.comment = state.comment
+                            updateFeed.img1 = state.imgs.count > 0 ? state.imgs[0].jpegData(compressionQuality: 0.1) : nil
+                            updateFeed.img2 = state.imgs.count > 1 ? state.imgs[1].jpegData(compressionQuality: 0.1) : nil
+                            updateFeed.img3 = state.imgs.count > 2 ? state.imgs[2].jpegData(compressionQuality: 0.1) : nil
+                            
+                            state.isUpdate = true
+                            return .none
+                        } catch {
+                            print("Failed to fetch: \(error)")
+                            return .none
                         }
                     } else {
                         // 등록
                         context.insert(feedData)
+                        
                         return .run { send in
                             await send(.showAlert(isShow: true,
                                                   alertType: .feedWriteSuccess))
                         }
                     }
+
                 }
                 
             case .setData(feedData: let feedData,
                           address: let address):
                 if let feedData = feedData {
+                    state.imgs.removeAll()
+                    state.id = feedData.id
                     state.title = feedData.title
                     state.comment = feedData.comment ?? ""
                     state.addr = feedData.addr ?? ""

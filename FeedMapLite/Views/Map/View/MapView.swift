@@ -96,7 +96,6 @@ struct MapView: UIViewRepresentable {
                 latitude: position.target.latitude,
                 longitude: position.target.longitude
             )
-            print("Center Position: \(clocation)")
             store.send(.setCenterPosition(cLocation: clocation))
         }
     }

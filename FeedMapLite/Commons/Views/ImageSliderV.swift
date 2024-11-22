@@ -19,7 +19,7 @@ struct ImageSliderV: View {
                     if let imgData = UIImage(data: item.wrappedValue) {
                         Image(uiImage: imgData)
                             .resizable()
-                            .scaledToFill()
+                            .scaledToFit()
                             .modifier(ImageModifier(contentSize: CGSize(width: p.size.width, height: p.size.height)))
                     }
                    
